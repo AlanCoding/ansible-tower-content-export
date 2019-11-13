@@ -137,8 +137,8 @@ EXAMPLES = '''
         success:
           - job_template: "my-job-2"
 
-- tower_worflow_template:
-    name: workflow template
+- tower_workflow_template:
+    name: Workflow Template
     state: absent
 '''
 

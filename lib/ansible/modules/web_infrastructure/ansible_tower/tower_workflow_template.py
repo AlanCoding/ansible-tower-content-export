@@ -109,6 +109,20 @@ notes:
 
 
 EXAMPLES = '''
+- name: 'Create Sample JSON file'
+  copy:
+    dest: 'my_workflow.json'
+    content: |
+      ---
+      - project: 'my_project'
+        success:
+          - job_template: 'Deploy Host'
+            success:
+              job_template: 'Configure Host'
+        failure:
+          - job_template: 'Clean up'
+        always:
+          - inventory_source: 'Local'
 - name: Create workflow template
   tower_workflow_template:
     name: Workflow Template
@@ -137,7 +151,8 @@ EXAMPLES = '''
         success:
           - job_template: "my-job-2"
 
-- tower_workflow_template:
+- name: 'Remove my first workflow template'
+  tower_worflow_template:
     name: Workflow Template
     state: absent
 '''
